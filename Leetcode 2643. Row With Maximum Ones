@@ -1,0 +1,36 @@
+class Solution {
+public:
+    vector<int> rowAndMaximumOnes(vector<vector<int>>& mat) {
+        
+        map<int , int>mp;
+
+
+        int idx = 0;
+
+        for(auto i : mat){
+
+            int c = 0;
+
+            for(auto j : i){
+
+                if(j == 1){
+                    c++;
+                }
+            }
+            mp[idx] = c;
+            idx++;
+        }
+
+        int ans = 0, cnt = 0;
+
+        for(auto[a , b] : mp){
+
+            if(b > cnt){
+                ans = a;
+                cnt = b;
+            }
+        }
+
+        return {ans , cnt};
+    }
+};
